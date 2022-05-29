@@ -1,4 +1,13 @@
 from setuptools import setup
+from Cython.Build import cythonize
+
+import numpy as np
+
+setup(
+    name="_cd_fast",
+    ext_modules = cythonize("satlasso/_cd_fast.pyx", language_level=3),
+    include_dirs=[np.get_include()]
+)
 
 setup(
     name = "satlasso",
@@ -15,4 +24,4 @@ setup(
         "cvxpy",
         "statistics"
     ]
-    )
+)
