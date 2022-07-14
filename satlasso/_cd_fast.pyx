@@ -92,7 +92,7 @@ cdef void fispos(int n, floating* x, floating* y) nogil:
     """ y:= (x > 0).astype(float) """
     cdef int i
     cdef floating v
-    for i in range(1, n):
+    for i in range(n):
         v = x[i]
         if v > 0:
             y[i] = 1.0
@@ -103,7 +103,7 @@ cdef void fisneg(int n, floating* x, floating* y) nogil:
     """ y:= (x < 0).astype(float) """
     cdef int i
     cdef floating v
-    for i in range(1, n):
+    for i in range(n):
         v = x[i]
         if v >= 0:
             y[i] = 0.0
@@ -114,7 +114,7 @@ cdef void fnot(int n, floating* x) nogil:
     """ x := np.logical_not(x).astype(float) """
     cdef int i
     cdef floating v
-    for i in range(1, n):
+    for i in range(n):
         v = x[i]
         if v > 0:
             x[i] = 0.0
